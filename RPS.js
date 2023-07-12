@@ -1,50 +1,59 @@
 let playerPick;
 let computerPick;
-let wins=0,losses=0,draws=0;
+let score = JSON.parse(localStorage.getItem('score')) || {
+    wins: 0,
+    losses: 0,
+    ties: 0
+};
+
+
+document.querySelector('.wins').innerHTML=`Wins: ${score.wins}`;
+document.querySelector('.draws').innerHTML=`Draws: ${score.draws}`;
+document.querySelector('.losses').innerHTML=`Losses: ${score.losses}`;
 
 function computerRock(playerPick){
     document.querySelector('.computer-pick').innerHTML='Computer picked: Rock';
     if(playerPick==0){
-        draws+=1;
-        document.querySelector('.draws').innerHTML=`draws: ${draws}`;
+        score.draws+=1;
+        document.querySelector('.draws').innerHTML=`draws: ${score.draws}`;
     }
     else if(playerPick==1){
-        losses+=1;
-        document.querySelector('.losses').innerHTML=`losses: ${losses}`;
+        score.losses+=1;
+        document.querySelector('.losses').innerHTML=`losses: ${score.losses}`;
     }
     else{
-        wins+=1;
-        document.querySelector('.wins').innerHTML=`wins: ${wins}`;
+        score.wins+=1;
+        document.querySelector('.wins').innerHTML=`wins: ${score.wins}`;
     }
 }
 function computerScissors(playerPick){
     document.querySelector('.computer-pick').innerHTML='Computer picked: Scissors';
     if(playerPick==0){
-        wins+=1;
-        document.querySelector('.wins').innerHTML=`wins: ${wins}`;
+        score.wins+=1;
+        document.querySelector('.wins').innerHTML=`wins: ${score.wins}`;
     }
     else if (playerPick==1){
-        draws+=1;
-        document.querySelector('.draws').innerHTML=`draws: ${draws}`;
+        score.draws+=1;
+        document.querySelector('.draws').innerHTML=`draws: ${score.draws}`;
     }
     else{
-        losses+=1;
-        document.querySelector('.losses').innerHTML=`losses: ${losses}`;
+        score.losses+=1;
+        document.querySelector('.losses').innerHTML=`losses: ${score.losses}`;
     }
 }
 function computerPaper(playerPick){
     document.querySelector('.computer-pick').innerHTML='Computer picked: Paper';
     if(playerPick==0){
-        losses+=1;
-        document.querySelector('.losses').innerHTML=`losses: ${losses}`;
+        score.losses+=1;
+        document.querySelector('.losses').innerHTML=`losses: ${score.losses}`;
     }
     else if(playerPick==1){
-        wins+=1;
-        document.querySelector('.wins').innerHTML=`wins: ${wins}`;
+        score.wins+=1;
+        document.querySelector('.wins').innerHTML=`wins: ${score.wins}`;
     }
     else{
-        draws+=1;
-        document.querySelector('.draws').innerHTML=`draws: ${draws}`;
+        score.draws+=1;
+        document.querySelector('.draws').innerHTML=`draws: ${score.draws}`;
     }
 }
 
@@ -58,6 +67,7 @@ function match(playerPick,computerPick){
     else{
        computerPaper(playerPick);
     }
+    localStorage.setItem('score', JSON.stringify(score));
 }
 
 document.querySelector('.Rock-button').onclick=function(){
