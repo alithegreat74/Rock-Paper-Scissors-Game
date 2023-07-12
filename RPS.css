@@ -16,7 +16,7 @@ p{
     background-color: #dfa927;
     flex: 1;
     padding-top: 30px;
-    padding-left: 20px;
+    padding-left: 50px;
 }
 .header{
     display: flex;
@@ -38,16 +38,19 @@ p{
 .stats-container{
     color: white;
     font-size: 30px;
+    text-align: center;
 }
 .buttons{
     height: 125px;
+    margin-left: 580px;
 }
 .Rock-button{
-    font-size: 50px;
+    font-size: 70px;
     background-color: rgb(255, 255, 255);
-    height: 80px;
-    width: 80px;
-    border-radius: 70px;
+    height: 100px;
+    width: 100px;
+    padding: 0;
+    border-radius: 50px;
     border: none;
     cursor: pointer;
     transition: opacity 0.1s;
@@ -59,11 +62,12 @@ p{
     opacity: 0.5;
 }
 .Paper-button{
-    font-size: 50px;
+    font-size: 70px;
     background-color: rgb(255, 255, 255);
-    height: 80px;
-    width: 80px;
-    border-radius: 70px;
+    height: 100px;
+    width: 100px;
+    padding: 0;
+    border-radius: 50px;
     border: none;
     cursor: pointer;
     transition: opacity 0.1s;
@@ -75,11 +79,12 @@ p{
     opacity: 0.5;
 }
 .Scissors-button{
-    font-size: 50px;
+    font-size: 70px;
     background-color: rgb(255, 255, 255);
-    height: 80px;
-    width: 80px;
-    border-radius: 70px;
+    height: 100px;
+    width: 100px;
+    padding: 0;
+    border-radius: 50px;
     border: none;
     cursor: pointer;
     transition: opacity 0.1s;
@@ -88,5 +93,23 @@ p{
     opacity: 0.7;
 }
 .Scissors-button:active{
+    opacity: 0.5;
+}
+
+.reset{
+    background-color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 670px;
+    padding: 10px;
+    transition: opacity 0.1s;
+    cursor: pointer;
+}
+.reset:hover{
+    opacity: 0.7;
+}
+.reset:active{
     opacity: 0.5;
 }
