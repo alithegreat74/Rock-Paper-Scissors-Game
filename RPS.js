@@ -10,51 +10,49 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 document.querySelector('.wins').innerHTML=`Wins: ${score.wins}`;
 document.querySelector('.draws').innerHTML=`Draws: ${score.draws}`;
 document.querySelector('.losses').innerHTML=`Losses: ${score.losses}`;
-
+function updateScores(Score){
+    document.querySelector('.wins').innerHTML=`wins: ${Score.wins}`;
+    document.querySelector('.draws').innerHTML=`draws: ${Score.draws}`;
+    document.querySelector('.losses').innerHTML=`losses: ${Score.losses}`;
+}
 function computerRock(playerPick){
     document.querySelector('.computer-pick').innerHTML='Computer picked: Rock';
     if(playerPick==0){
         score.draws+=1;
-        document.querySelector('.draws').innerHTML=`draws: ${score.draws}`;
     }
     else if(playerPick==1){
         score.losses+=1;
-        document.querySelector('.losses').innerHTML=`losses: ${score.losses}`;
     }
     else{
         score.wins+=1;
-        document.querySelector('.wins').innerHTML=`wins: ${score.wins}`;
     }
+    updateScores(score);
 }
 function computerScissors(playerPick){
     document.querySelector('.computer-pick').innerHTML='Computer picked: Scissors';
     if(playerPick==0){
         score.wins+=1;
-        document.querySelector('.wins').innerHTML=`wins: ${score.wins}`;
     }
     else if (playerPick==1){
         score.draws+=1;
-        document.querySelector('.draws').innerHTML=`draws: ${score.draws}`;
     }
     else{
         score.losses+=1;
-        document.querySelector('.losses').innerHTML=`losses: ${score.losses}`;
     }
+    updateScores(score);
 }
 function computerPaper(playerPick){
     document.querySelector('.computer-pick').innerHTML='Computer picked: Paper';
     if(playerPick==0){
         score.losses+=1;
-        document.querySelector('.losses').innerHTML=`losses: ${score.losses}`;
     }
     else if(playerPick==1){
         score.wins+=1;
-        document.querySelector('.wins').innerHTML=`wins: ${score.wins}`;
     }
     else{
         score.draws+=1;
-        document.querySelector('.draws').innerHTML=`draws: ${score.draws}`;
     }
+    updateScores(score);
 }
 
 function match(playerPick,computerPick){
@@ -88,3 +86,10 @@ document.querySelector('.Scissors-button').onclick=function(){
     match(playerPick,computerPick);
 }
 
+document.querySelector('.reset').onclick=function(){
+    score.wins=0;
+    score.draws=0;
+    score.losses=0;
+    updateScores(score);
+    localStorage.setItem('score',JSON.stringify(score));
+}
